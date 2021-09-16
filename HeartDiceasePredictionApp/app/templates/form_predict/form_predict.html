@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
-<form action="/send" method="POST">
 
+<form action="/predict" method="POST">
+    <h1>Predict Heart Dicease Form</h1>
     <!--Call which will be use to predict-->
     <div class="form-row">
         <div class="col-md-4 mb-3 ml-5 ">
             <label for="Number One">Age</label>
             <input
             type="text"
-            placeholder="Age"
             class="form-control"
             name="age"
+            required
             />
         </div>
         
@@ -39,9 +40,9 @@
             <label for="Number Two">Resting blood pressure</label>
             <input
             type="text"
-            placeholder="Resting blood pressure"
             class="form-control"
             name="trestbps"
+            required
             />
         </div>
 
@@ -49,9 +50,9 @@
             <label for="Number Two">Serum cholestoral in mg/dl</label>
             <input
             type="text"
-            placeholder="Serum cholestoral in mg/dl"
             class="form-control"
             name="chol"
+            required
             />
         </div>
 
@@ -61,7 +62,7 @@
         <div class="col-md-3 mb-3 ml-5">
             <label for="Operation">Fasting blood sugar</label>
             <div class="custom-control custom-radio">
-                <input type="radio" id="fbs1" name="fbs" class="custom-control-input" value="lower than 120mg/ml">
+                <input type="radio" id="fbs1" name="fbs" class="custom-control-input" value="lower than 120mg/ml" required>
                 <label class="custom-control-label" for="fbs1">lower than 120mg/ml</label>
             </div>
             <div class="custom-control custom-radio">
@@ -74,7 +75,7 @@
         <div class="col-md-3 mb-3">
             <label for="Operation">Exercise induced angina</label>
             <div class="custom-control custom-radio">
-                <input type="radio" id="exang1" name="exang" class="custom-control-input" value="yes">
+                <input type="radio" id="exang1" name="exang" class="custom-control-input" value="yes" required>
                 <label class="custom-control-label" for="exang1">Yes</label>
             </div>
             <div class="custom-control custom-radio">
@@ -99,9 +100,9 @@
             <label for="Number Two">Resting heart rate</label>
             <input
             type="text"
-            placeholder="Resting heart rate"
             class="form-control"
             name="thalach"
+            required
             />
         </div>
 
@@ -120,9 +121,9 @@
             <label for="Number Two">ST depression</label>
             <input
             type="text"
-            placeholder="ST depression"
             class="form-control"
             name="oldpeak"
+            required
             />
         </div>
 
@@ -150,7 +151,7 @@
 
     <!--Submit-->
     <br>
-        <button class="btn btn-primary ml-5" type="submit">Submit form</button>
+        <button class="btn btn-success ml-5" type="submit">Submit form</button>
     <br />
   </form>
 {% endblock %}

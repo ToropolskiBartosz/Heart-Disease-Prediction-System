@@ -14,89 +14,37 @@
   height: 100%;
 }
 
-.top_navbar{
-  background: #80CBC4;
-  height: 60px;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
-
-.top_navbar .hamburger{
-  width: 80px;
-  background: #004D40;
-  position: relative;
-  font-size: 28px;
-}
-
-.top_navbar .hamburger .hamburger__inner{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  cursor: pointer;
-  width: 40px;
-  height: 20px;
-}
-
-.top_navbar .hamburger__inner > div{
-  width: 30px;
-  height: 2px;
-  background: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.top_navbar .hamburger div.two{
-  top: 10px;
-  width: 40px;
-}
-
-.top_navbar .hamburger div.three{
-  top: 20px;
-}
-
-.top_navbar .menu{
-  width: calc(100% - 80px);
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.top_navbar .menu .logo{
-  color: #004D40;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-
 .main_container .sidebar{
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: 0;
   width: 225px;
   height: 100%;
   background: #004D40;
-  transition: all 0.3s ease;
 }
 
 .main_container .sidebar .sidebar__inner{
   position: relative;
 }
 
+.main_container .sidebar .profile{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-left: 60px;
+  padding: 20px 0;
+  white-space: nowrap;
 
-
-.main_container .container{
-  margin-top: 60px;
-  width: calc(100% - 225px);
-  margin-left: 225px;
-  padding: 30px;
-  transition: all 0.3s ease;
 }
+
+
+.main_container .sidebar .profile p:first-child{
+  font-size: 14px;
+  color: #80CBC4;
+  margin-bottom: 3px;
+
+}
+
 
 .main_container .sidebar ul li a{
   color: #fff;
@@ -117,11 +65,13 @@
 .main_container .sidebar ul li a span{
   display: inline-block;
 }
+/* podswietlanie wyboru*/
 
-.main_container .sidebar ul li a:hover,
-.main_container .sidebar ul li a.active{
-  background: #fff;
-  color: #004D40;
+.main_container .container{
+  margin-top: 15px;
+  width: calc(100% - 225px);
+  margin-left: 225px;
+  padding: 30px;
 }
 
 .main_container .container .item{
@@ -133,18 +83,8 @@
   line-height: 22px;
 }
 
-/* after adding active class */
-.wrapper.active .sidebar{
-  width: 80px;
-}
-
-.wrapper.active .sidebar ul li a span.title,
-.wrapper.active .profile_info
-{
-  display: none;
-}
-
-.wrapper.active .main_container .container{
-  width: calc(100% - 80px);
-  margin-left: 80px;
+.main_container .sidebar ul li a:hover,
+.main_container .sidebar ul li a.active{
+  background: #fff;
+  color: #004D40;
 }

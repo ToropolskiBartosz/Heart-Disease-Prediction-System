@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<h1 class="ui center aligned header">Patient list</h1>
+<form action="/table" method="POST">
+    <div class="form-row">
+        <div class="col-md-2 mb-3">
+            <select class="form-control" name="filtr">
+            <option value='all'>All </option>
+            <option value='allr'>All right</option>
+            <option value='war'>Warning</option>
+            <option value='dan'>Dengerous</option>
+            </select>
+        </div>
+        <div class="col mb-3 ">
+            <button class="btn btn-success ml-5" type="filtr">Filtr</button>
+        </div>
+    </div>
+</form>
+
+{% for patient in patient_list %}
+<div class="item">
+    <p class="h6">ID {{patient.id}}</p>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">age</th>
+            <th scope="col">sex</th>
+            <th scope="col">cp</th>
+            <th scope="col">trestbps</th>
+            <th scope="col">chol</th>
+            <th scope="col">fbs</th>
+            <th scope="col">restecg</th>
+            <th scope="col">thalach</th>
+            <th scope="col">exang</th>
+            <th scope="col">oldpeak</th>
+            <th scope="col">slope</th>
+            <th scope="col">ca</th>
+            <th scope="col">thal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{patient.age}}</td>
+            <td>{{patient.sex}}</td>
+            <td>{{patient.cp}}</td>
+            <td>{{patient.trestbps}}</td>
+            <td>{{patient.chol}}</td>
+            <td>{{patient.fbs}}</td>
+            <td>{{patient.restecg}}</td>
+            <td>{{patient.thalach}}</td>
+            <td>{{patient.exang}}</td>
+            <td>{{patient.oldpeak}}</td>
+            <td>{{patient.slope}}</td>
+            <td>{{patient.ca}}</td>
+            <td>{{patient.thal}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Decisiontree</th>
+            <th scope="col">KNN</th>
+            <th scope="col">LogiticRegression</th>
+            <th scope="col">MLP</th>
+            <th scope="col">RandomForest</th>
+            <th scope="col">SVC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Danger: </td>
+            {% if not patient.decisiontree %}
+            <td>{{ patient.decisiontree }}</td>
+            {% else %}
+            <td class="table-warning">{{patient.mlp}}</td>
+            {% endif %}
+            
+            {% if not patient.knn %}
+            <td>{{patient.knn}}</td>
+            {% else %}
+            <td class="table-warning">{{patient.knn}}</td>
+            {% endif %}
+
+            {% if not patient.logisticregression %}
+            <td>{{patient.logisticregression}} </td>
+            {% else %}
+            <td class="table-warning">{{patient.logisticregression}}</td>
+            {% endif %}
+
+            {% if not patient.mlp %}
+            <td>{{patient.mlp}}</td>
+            {% else %}
+            <td class="table-warning">{{patient.mlp}}</td>
+            {% endif %}
+
+            {% if not patient.randomforest %}
+            <td>{{patient.randomforest}}</td>
+            {% else %}
+            <td class="table-warning">{{patient.randomforest}}</td>
+            {% endif %}
+
+            {% if not patient.scv %}
+            <td>{{patient.scv}}</td>
+            {% else %}
+            <td class="table-warning">{{patient.scv}}</td>
+            {% endif %}
+
+          </tr>
+        </tbody>
+      </table>
+
+    {% if patient.decisiontree 
+        and patient.knn 
+        and patient.logisticregression
+        and patient.mlp
+        and patient.randomforest
+        and patient.scv %}
+    <span class="btn btn-danger">Danger</span>
+    {% elif patient.decisiontree 
+        or patient.knn 
+        or patient.logisticregression
+        or patient.mlp
+        or patient.randomforest
+        or patient.scv %}
+    <span class="btn btn-warning">Warning</span>
+    {% else %}
+    <span class="btn btn-success">All right</span>
+    {% endif %}
+
+    <a class="btn btn-secondary" href="/delete_patient/{{patient.id}}">Delete</a>
+</div>
+{% endfor %}
+
+{% endblock %}

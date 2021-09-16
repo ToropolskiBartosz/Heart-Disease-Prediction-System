@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+			 
+    {% for model, score in models_score %}
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+   
+        <div class="box-part text-center">
+            
+            <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+            
+            <div class="title">
+                <h4>{{model}}</h4>
+            </div>
+            
+            <div class="text">
+                <span>Dengerous: {{score}}</span>
+            </div>
+            
+            <a href="#">Learn More</a>
+            
+         </div>
+    </div>	 
+    {% endfor %}
+    <a href ='/form_predict' class="btn btn-success ml-5">Submit form</a>
+</div>	
+
+{% endblock %}
