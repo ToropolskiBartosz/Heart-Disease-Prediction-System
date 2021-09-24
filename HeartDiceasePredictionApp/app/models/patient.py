@@ -1,6 +1,10 @@
 from app import db
 
 class Patient(db.Model):
+    '''
+    Klasa tworząca tabele pacjent
+    w bazie danych SQLite
+    '''
 
     id = db.Column(db.Integer, primary_key=True)
     age = db.Column(db.String(3))

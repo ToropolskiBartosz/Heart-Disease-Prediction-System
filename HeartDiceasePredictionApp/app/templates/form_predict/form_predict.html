@@ -1,16 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<form action="/predict" method="POST">
+<form action="/form_predict" method="POST">
     <h1>Predict Heart Dicease Form</h1>
     <!--Call which will be use to predict-->
     <div class="form-row">
         <div class="col-md-4 mb-3 ml-5 ">
             <label for="Number One">Age</label>
             <input
-            type="text"
+            type="number"
             class="form-control"
             name="age"
+            min="1"
+            max="130"
             required
             />
         </div>
@@ -39,9 +41,11 @@
         <div class="col-md-3 mb-3">    
             <label for="Number Two">Resting blood pressure</label>
             <input
-            type="text"
+            type="number"
             class="form-control"
             name="trestbps"
+            min="80"
+            max="250"
             required
             />
         </div>
@@ -49,9 +53,11 @@
         <div class="col-md-3 mb-3"> 
             <label for="Number Two">Serum cholestoral in mg/dl</label>
             <input
-            type="text"
+            type="number"
             class="form-control"
             name="chol"
+            min="100"
+            mac="750"
             required
             />
         </div>
@@ -99,9 +105,11 @@
         <div class="col-md-4 mb-3">
             <label for="Number Two">Resting heart rate</label>
             <input
-            type="text"
+            type="number"
             class="form-control"
             name="thalach"
+            min="50"
+            max="250"
             required
             />
         </div>
@@ -120,9 +128,12 @@
         <div class="col-md-3 mb-3 ml-5">
             <label for="Number Two">ST depression</label>
             <input
-            type="text"
+            type="number"
             class="form-control"
             name="oldpeak"
+            min="0"
+            max="10"
+            step="0.01"
             required
             />
         </div>
