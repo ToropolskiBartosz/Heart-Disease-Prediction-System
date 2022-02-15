@@ -1,0 +1,6 @@
+ DecisionTreeClassifier.bin Last modified:  Sun Dec 26 16:03:33 2021
+ KNeighborsClassifier.bin Last modified:  Sun Dec 26 16:03:33 2021
+ LogisticRegression.bin Last modified:  Sun Dec 26 16:03:33 2021
+ MLPClassifier.bin Last modified:  Sun Dec 26 16:03:33 2021
+ RandomForestClassifier.bin Last modified:  Sun Dec 26 16:03:33 2021
+ SVC.bin Last modified:  Sun Dec 26 16:03:33 2021

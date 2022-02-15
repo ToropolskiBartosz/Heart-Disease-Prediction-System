@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'dashbords/navbar_dash.html' %}
+
+<div class="container_custom">
+    <h3>Wprowaszanie zmian</h3>
+    <div class="alert alert-warning" role="alert">
+        {{message}}
+    </div>
+<p>
+    <form action="/dashboard/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Wybierz plik z opisem algorytmów</label>
+            <input type="file" class="form-control-file" accept=".csv" name="info" />
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Wybierz algorytmy</label>
+            <input type="file" class="form-control-file" accept=".bin" name="algoritms" multiple><br><br>
+        </div>
+        <div class="form-group">
+            <input type="submit" />
+          </div>
+      </form>
+
+</div>
+{% endblock %}

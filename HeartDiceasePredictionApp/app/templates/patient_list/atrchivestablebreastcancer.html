@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'patient_list/navbar_list.html' %}
+
+<div class="container_custom">
+
+  <h1 class="ui center aligned header">Lista predykcji "Breast Cancer"</h1>
+  <form action="/table/atrchivesbreastCancer" method="POST">
+      <div class="form-row">
+          <div class="col-md-2 mb-3">
+              <select class="form-control" name="filtr">
+              <option value='all'>All </option>
+              <option value='allr'>All right</option>
+              <option value='war'>Warning</option>
+              <option value='dan'>Danger</option>
+              </select>
+          </div>
+          <div>
+            <select class="form-control" name="version">
+                {% for nrVersion in listVersion %}
+                <option value='{{nrVersion}}'> {{nrVersion}} </option>
+                {% endfor %}
+                </select>
+          </div>
+          <div class="col mb-3 ">
+              <button class="btn btn-success ml-5" type="filtr">Filtr</button>
+              <a href="/table/atrchivesbreastCancer" role="button" class="btn btn-secondary popover-test" title="Popover title">Wszystkie</a>
+          </div>
+      </div>
+  </form>
+
+
+  <table id="patients_list" class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Wersja</th>
+        <th>OPIS</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for patient in patient_list %}
+      <tr>
+        <td>{{patient.id}}</td>
+        <td>{{patient.patient_algoritmML_id[0].algoritmBreastCancer.version}}</td>
+        <td>
+        <div class="item">
+            {% if patient.correct_prediction %}
+              <div class="alert alert-success" role="alert">
+                Czy zdjagnozowano u pacjenta chorobe: {{patient.correct_prediction}}
+              </div>
+            {% elif patient.correct_prediction == None %}
+              <div class="alert alert-light" role="alert">
+                Jeszcze nie ustalono czy pacjent jest chory!
+              </div>
+            {% elif not patient.correct_prediction %}
+              <div class="alert alert-danger" role="alert">
+                Czy zdjagnozowano u pacjenta chorobe: {{patient.correct_prediction}}
+              </div>
+            {% else %}
+              <div class="alert alert-light" role="alert">
+                Jeszcze nie ustalono czy pacjent jest chory!
+              </div>
+            {% endif %}
+
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">cThickness</th>
+                    <th scope="col">uofCSize</th>
+                    <th scope="col">uofShape</th>
+                    <th scope="col">mAdhesion</th>
+                    <th scope="col">sECSize</th>
+                    <th scope="col">bNuclei</th>
+                    <th scope="col">bChromatin</th>
+                    <th scope="col">nNucleoli</th>
+                    <th scope="col">mitoses</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{patient.cThickness}}</td>
+                    <td>{{patient.uofCSize}}</td>
+                    <td>{{patient.uofShape}}</td>
+                    <td>{{patient.mAdhesion}}</td>
+                    <td>{{patient.sECSize}}</td>
+                    <td>{{patient.bNuclei}}</td>
+                    <td>{{patient.bChromatin}}</td>
+                    <td>{{patient.nNucleoli}}</td>
+                    <td>{{patient.mitoses}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col"></th>
+                    {% for algoritm in patient.patient_algoritmML_id %}
+                    <th scope="col">{{algoritm.algoritmBreastCancer.model}}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Danger: </td>
+                    {% for algoritm in patient.patient_algoritmML_id %}
+                      {% if not algoritm.prediction %}
+                      <td>{{ algoritm.prediction }}</td>
+                      {% else %}
+                      <td class="table-warning">{{algoritm.prediction}}</td>
+                      {% endif %}
+                    {% endfor %}
+
+                  </tr>
+                </tbody>
+              </table>
+
+        </div>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script> 
+  $(document).ready(function() {
+      $('#patients_list').DataTable({     
+        "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+          "iDisplayLength": 3
+         } 
+      );
+  } );
+  
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+{% endblock %}

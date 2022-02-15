@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'form_predict/navbar_form.html' %}
+
+<div class="container_custom">
+    <form action="/breastCancer/form_predict" method="POST">
+        {{form.hidden_tag()}}
+    <h1>Formularz predykcji "Breast Cancer"</h1>
+    <!--Call which will be use to predict-->
+    <div class="form-row">
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Clump Thickness</label>
+            {{form.clump_thickness(class="form-control")}}
+            {% for error in form.clump_thickness.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+
+        </div>
+        
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Uniformity of Cell Size</label>
+            {{form.uniformity_of_cell_size(class="form-control")}}
+            {% for error in form.uniformity_of_cell_size.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>   
+
+    <div class="form-row">
+        <div class="col-md-3 mb-3 ml-5">
+            <label for="Number Two">Uniformity of Cell Shape</label>
+            {{form.uniformity_of_cell_shape(class="form-control")}}
+            {% for error in form.uniformity_of_cell_shape.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3">    
+            <label for="Number Two">Marginal Adhesion</label>
+            {{form.marginal_adhesion(class="form-control")}}
+            {% for error in form.marginal_adhesion.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3"> 
+            <label for="Number Two">Single Epithelial Cell Size</label>
+            {{form.single_epithelial_cell_size(class="form-control")}}
+            {% for error in form.single_epithelial_cell_size.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Bare Nuclei</label>
+            {{form.bare_nuclei(class="form-control")}}
+            {% for error in form.bare_nuclei.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Bland Chromatin</label>
+            {{form.bland_chromatin(class="form-control")}}
+            {% for error in form.bland_chromatin.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>   
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Normal Nucleoli</label>
+            {{form.normal_nucleoli(class="form-control")}}
+            {% for error in form.normal_nucleoli.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Mitoses</label>
+            {{form.mitoses(class="form-control")}}
+            {% for error in form.mitoses.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div> 
+
+    <!--Submit-->
+    {{form.submit(class="btn btn-success ml-5")}}
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+{% endblock %}

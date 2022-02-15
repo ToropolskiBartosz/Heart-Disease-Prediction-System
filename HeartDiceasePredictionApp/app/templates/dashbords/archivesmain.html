@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'dashbords/navbar_dash.html' %}
+
+<div class="container_custom">
+
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="total-orders">
+                      <div class="card-header">
+                          <h5 class="card-title">Archiwum dla algorytmów trenowanych na zestawie danych "Heard Disease"</h5>
+                      </div>
+                      <div class="card-body">
+                        <a href="/dashboard/archives/infoModels" role="button" class="btn btn-secondary popover-test" title="Popover title">Wyświetl</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-delivered">
+                      <div class="card-header">
+                          <h5 class="card-title">Archiwum dla algorytmów trenowanych na zestawie danych "Breast Cancer"</h5>
+                      </div>
+                      <div class="card-body">
+                        <a href="/dashboard/archives/infoModels_BreastCancer" role="button" class="btn btn-secondary popover-test" title="Popover title">Wyświetl</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-pending">
+                      <div class="card-header">
+                          <h5 class="card-title">Archiwum dla algorytmów trenowanych na zestawie danych "Thyroid"</h5>
+                      </div>
+                      <div class="card-body">
+                        <a href="/dashboard/archives/infoModels_Thyroid" role="button" class="btn btn-secondary popover-test" title="Popover title">Wyświetl</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

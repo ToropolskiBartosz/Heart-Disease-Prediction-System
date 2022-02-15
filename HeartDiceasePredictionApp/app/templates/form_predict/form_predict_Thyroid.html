@@ -1,0 +1,255 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'form_predict/navbar_form.html' %}
+
+<div class="container_custom">
+    <form action="/thyroid/form_predict" method="POST">
+        {{form.hidden_tag()}}
+    <h1>Formularz predykcji "Thyroid"</h1>
+    <!--Call which will be use to predict-->
+    
+    <div class="form-row">
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">Age</label>
+            {{form.age(class="form-control")}}
+            {% for error in form.age.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <label for="Operation">Sex</label>
+            {{form.sex(class="form-control")}}
+            {% for error in form.sex.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>   
+
+    <div class="form-row">
+        <div class="col-md-3 mb-3 ml-5">
+            <label for="Operation">On thyroxine</label>
+            {{form.on_thyroxine(class="form-control")}}
+            {% for error in form.on_thyroxine.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3">    
+            <label for="Operation">Maybe on thyroxine</label>
+            {{form.maybe_on_thyroxine(class="form-control")}}
+            {% for error in form.maybe_on_thyroxine.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3"> 
+            <label for="Operation">On antithyroid medication</label>
+            {{form.on_antithyroid_medication(class="form-control")}}
+            {% for error in form.on_antithyroid_medication.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-2 mb-3 ml-5">
+            <label for="Operation">Sick patient</label>
+            {{form.sick_patient_reports_malaise(class="custom-control custom-radio")}}
+            {% for error in form.sick_patient_reports_malaise.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="col-md-2 mb-3 ml-2">
+            <label for="Operation">Pregnant</label>
+            {{form.pregnant(class="custom-control custom-radio")}}
+            {% for error in form.pregnant.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="col-md-2 mb-3 ml-2">
+            <label for="Operation">Thyroid surgery</label>
+            {{form.thyroid_surgery(class="custom-control custom-radio")}}
+            {% for error in form.thyroid_surgery.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+        <div class="col-md-3 mb-3 ml-2">
+            <label for="Operation">Treatment</label>
+            {{form.treatment(class="custom-control custom-radio")}}
+            {% for error in form.treatment.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="form-row">
+
+        <div class="col-md-3 mb-3 ml-5">
+            <label for="Operation">Test hypothyroid</label>
+            {{form.test_hypothyroid(class="form-control")}}
+            {% for error in form.test_hypothyroid.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="col-md-3 mb-3">
+            <label for="Operation">Test hyperthyroid</label>
+            {{form.test_hyperthyroid(class="form-control")}}
+            {% for error in form.test_hyperthyroid.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="Operation">On lithium</label>
+            {{form.on_lithium(class="form-control")}}
+            {% for error in form.on_lithium.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>   
+
+    <div class="form-row">
+        <div class="col-md-2 mb-3 ml-5">
+            <label for="Operation">Has goitre</label>
+            {{form.has_goitre(class="custom-control custom-radio")}}
+            {% for error in form.has_goitre.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="col-md-2 mb-3 ml-2">
+            <label for="Operation">Has tumor</label>
+            {{form.has_tumor(class="custom-control custom-radio")}}
+            {% for error in form.has_tumor.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="col-md-2 mb-3 ml-2">
+            <label for="Operation">Hypopituitary</label>
+            {{form.hypopituitary(class="custom-control custom-radio")}}
+            {% for error in form.hypopituitary.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        
+
+
+        <div class="col-md-3 mb-3 ml-2">
+            <label for="Operation">Psychological symptoms</label>
+            {{form.psychological_symptoms(class="custom-control custom-radio")}}
+            {% for error in form.psychological_symptoms.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-3 mb-3 ml-5">
+            <label for="Number Two">TSH</label>
+            {{form.tsh(class="form-control")}}
+            {% for error in form.tsh.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3">    
+            <label for="Number Two">T3</label>
+            {{form.t_three(class="form-control")}}
+            {% for error in form.t_three.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3 mb-3"> 
+            <label for="Number Two">TT4</label>
+            {{form.tt_four(class="form-control")}}
+            {% for error in form.tt_four.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3 ml-5 ">
+            <label for="Number One">T4U</label>
+            {{form.t_four_u(class="form-control")}}
+            {% for error in form.t_four_u.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <label for="Number One">FTI</label>
+            {{form.fti(class="form-control")}}
+            {% for error in form.fti.errors%}
+            <div class="alert alert-danger " role="alert">
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--Submit-->
+    {{form.submit(class="btn btn-success ml-5")}}
+    </form>
+</div>
+{% endblock %}

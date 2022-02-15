@@ -9,7 +9,7 @@ class DataMenager:
         self.data_path = data_path
         self.data_url = data_url
         
-    def fetch_data_from_web(self, name_data):
+    def fetch_data_from_web(self, name_data, sep=','):
         '''
         Metoda odpowiadająca za pobranie zbioru danych
         z repozytorum universytetu calofornijeskego
@@ -17,14 +17,14 @@ class DataMenager:
         try:
             if not os.path.isdir(self.data_path + '/raw'):
                 os.makedirs(self.data_path + '/raw')
-            df = pd.read_csv(self.data_url, header = None)    
+            df = pd.read_csv(self.data_url, header = None, sep=sep)    
             df.to_csv(f'{self.data_path}/raw/{name_data}',index=False)
         except:
             print('Error')
             
-    def load_raw_data(self, name_data, columns=None):
+    def load_raw_data(self, name_data, columns=None, sep=','):
         try:
-            df = pd.read_csv(f'{self.data_path}/raw/{name_data}')
+            df = pd.read_csv(f'{self.data_path}/raw/{name_data}', sep=sep)
             if columns:
                 df.columns = columns
             return df
@@ -43,9 +43,9 @@ class DataMenager:
         except:
             print('Dane nie zostały zapisane')    
     
-    def load_preprocessing_data(self, name_data):
+    def load_preprocessing_data(self, name_data, sep=','):
         try:
-            df = pd.read_csv(f'{self.data_path}/preprocessing/{name_data}')
+            df = pd.read_csv(f'{self.data_path}/preprocessing/{name_data}', sep=sep)
             return df
         except:
             print('Dane nie mogły zostac załadowane ')

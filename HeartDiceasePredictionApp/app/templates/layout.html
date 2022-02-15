@@ -13,46 +13,52 @@
 <body>
 
 <div class="wrapper">
-  
   <div class="main_container">
 
       <div class="sidebar">
           <div class="sidebar__inner">
             <div class="profile">
               <div class="profile_info">
-                 <p>Welcome</p>
-                 <p class="profile_name">iHeartProtect</p>
+                 <p>Witaj w</p>
+                 <p class="profile_name">iProtect</p>
               </div>
             </div>
             <ul>
               <li>
                 <a href="/">
                   <span class="icon"><i class="fas fa-home"></i></span>
-                  <span class="title">Home</span>
-                </a>
-              </li>
-              <li>
-                <a href="/form_predict">
-                  <span class="icon"><i class="fab fa-delicious"></i></span>
-                  <span class="title">Forms</span>
-                </a>
-              </li>
-              <li>
-                <a href="/table">
-                  <span class="icon"><i class="fas fa-border-all"></i></span>
-                  <span class="title">Tables</span>
+                  <span class="title">Strona główna</span>
                 </a>
               </li>
               <li>
                 <a href="/dashboard">
                     <span class="icon"><i class="fas fa-dice-d6"></i></span>
-                    <span class="title">Dashboard</span>
+                    <span class="title">Algorytmy</span>
+                </a>
+              </li>
+              <li>
+                <a href="/form_predict">
+                  <span class="icon"><i class="fab fa-delicious"></i></span>
+                  <span class="title">Formularze</span>
+                </a>
+              </li>
+              <li>
+                <a href="/table">
+                  <span class="icon"><i class="fas fa-border-all"></i></span>
+                  <span class="title">Lista</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dashboard/dash/Dash">
+                    <span class="icon"><i class="fas fa-dice-d6"></i></span>
+                    <span class="title">Zestawienie</span>
                 </a>
               </li>
             </ul>
           </div>
       </div>
-      <div class="container">
+      <div class="container_custom_fluid">
+
         {% block body %}
         {% endblock %}
       </div>

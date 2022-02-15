@@ -1,0 +1,8 @@
+W celu uruchomienia aplikacji wymagana jest posiadanie w swoim środowisku roboczym Pythona w wersji 3.6 lub nowszej oraz wirtualnego środowiska python posiadającego wszystkie wymagane moduły w odpowiednich wersjach. W celu utworzenia takiego środowiska wykorzystuję się komendę, przedstawioną na lising 1 i uruchamia się je za pomocą komendy z listing 2, następnie instalacje wszystkich wymaganych modułów można wykonać za pomocą komendy z listing 3 wykorzystując do tego plik requirements.txt.
+python -m venv nazwa_środowiska
+Listing 1. Komenda tworząca wirtualne środowisko.
+nazwa_środowiska\Scripts\activate
+Listing 2. Aktywacja wirtualnego środowiska.
+pip install -r requirements.txt
+Listing 3. Instalacja wymaganych modułów.
+Po odpowiednim skonfigurowaniu środowiska wykonując komendę z listing 4 następuje uruchomienie aplikacji na adresie 127.0.0.1 na porcie 5000.

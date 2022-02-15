@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% include 'patient_list/navbar_list.html' %}
+
+<div class="container_custom">
+
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="total-orders">
+                      <div class="card-header">
+                          <h5 class="card-title">Ilość przeprowadzonych predykcji dla przykładów bazujących na zestawie danych "Heard Dicease"</h5>
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{total_heard_dicease}}</h3>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-delivered">
+                      <div class="card-header">
+                          <h5 class="card-title">Ilość przeprowadzonych predykcji dla przykładów bazujących na zestawie danych "Breast Cancer"</h5>
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{total_breast_cancer}}</h3>
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-pending">
+                      <div class="card-header">
+                          <h5 class="card-title">Ilość przeprowadzonych predykcji dla przykładów bazujących na zestawie danych "Thyroid"</h5>
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{total_thyroid}}</h3>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
